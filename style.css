@@ -1,0 +1,23 @@
+.inside1{
+
+
+    background-color: brown;
+    width: 100px;
+    height: 100px;
+
+}
+
+.inside2{
+
+
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+
+}
+
+.hidden {
+
+display: none;
+
+}
