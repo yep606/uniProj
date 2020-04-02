@@ -1,18 +1,37 @@
-.inside1{
+body {
 
+margin: 0;
+padding: 0;
+}
 
-    background-color: brown;
-    width: 100px;
-    height: 100px;
+.map {
+
+position: relative;
+text-align: center;
 
 }
 
-.inside2{
+svg{
+
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+}
+
+.part {
+
+opacity: 0;
 
 
-    background-color: yellow;
-    width: 100px;
-    height: 100px;
+}
+
+.part:hover{
+
+transition: opacity .2s ease;
+opacity: .3;
+cursor: pointer;
 
 }
 
