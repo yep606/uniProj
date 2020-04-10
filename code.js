@@ -1,23 +1,20 @@
-var map = document.getElementById("map");
-second.classList.add("hidden");
+var mapArr = document.getElementsByClassName("map");
 
-console.log(first);
-console.log(second);
+var selectedId = 0;
 
+for(let i = 1; i < mapArr.length; i++){
 
+    mapArr[i].classList.add("hidden");
+
+}
 
 function change(){
 
-    var value = document.getElementById("levels").value;
+    var newSelectedId = document.getElementById("levels").value;
 
-    if(value == "1"){
-        map.classList.remove("hidden")
-
-    }
-    else{
-        map.classList.add("hidden");
-    
-    }
+    mapArr[selectedId].classList.add("hidden");
+    mapArr[newSelectedId].classList.remove("hidden");
+    selectedId = newSelectedId;
         
-
 }
+
