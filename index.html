@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    <h2 class="levelplan">План этажа</h2>
     <div class="map" id="map1">
         <svg viewBox="0 0 1000 500">
 
@@ -41,7 +41,7 @@
                 d="m 228.99856,478.13897 c 89.72832,-11.70534 69.91894,-112.64606 0,-118.48577 -107.53761,11.74638 -53.32633,132.10382 0,118.48577 z"
                 fill="blue" />
         </svg>
-        <img src="icons/1.jpg" alt="">
+        <img src="levels/1.jpg" alt="">
 
     </div>
 
@@ -58,7 +58,7 @@
                 fill="blue" />
 
         </svg>
-        <img src="icons/2.jpg" alt="">
+        <img src="levels/2.jpg" alt="">
 
     </div>
 
@@ -68,7 +68,7 @@
                 d="m 501.43155,450.93946 c 38.10366,-3.56473 66.27261,-37.40145 60.03339,-65.97554 -6.75416,-30.93234 -22.59794,-52.42923 -62.50878,-56.1539 -93.32465,12.46019 -63.72746,122.95357 2.47539,122.12944 z"
                 fill="blue" />
         </svg>
-        <img src="icons/3.png" alt="">
+        <img src="levels/3.png" alt="">
 
     </div>
 
@@ -78,7 +78,7 @@
                 d="m 500,453.02714 c 79.64238,-7.94377 103.11355,-115.19516 0,-139.87474 -118.67294,26.08996 -58.28676,132.3019 0,139.87474 z"
                 fill="blue">
         </svg>
-        <img src="icons/4.png" alt="">
+        <img src="levels/4.png" alt="">
 
     </div>
 
@@ -88,7 +88,7 @@
                 d="m 497.91232,457.20251 c 92.24741,-9.61406 99.36455,-126.41261 0,-138.8309 -108.86842,14.97199 -78.67985,136.58943 0,138.8309 z"
                 fill="blue">
         </svg>
-        <img src="icons/5.png" alt="">
+        <img src="levels/5.png" alt="">
     </div>
 
     <div class="map" id="map6">
@@ -103,21 +103,33 @@
                 d="m 620.90278,462.64029 c 92.05014,-6.38454 94.43646,-121.75633 0,-136.97753 -92.68659,13.02365 -88.60564,130.1316 0,136.97753 z"
                 fill="blue" />
         </svg>
-        <img src="icons/6.png" alt="">
+        <img src="levels/6.png" alt="">
     </div>
 
+    <div>
+        <h2 class="levelplan">Информация</h2>
+        <textarea class="form-control" name="" id="" cols="15" rows="5" disabled></textarea>
+    </div>
 
+    <div class="interaction">
+        <div class="choice">
+            <select id="levels" class="custom-select w-25 mx-auto">
+                <option selected>Выберите этаж</option>
+                <option value="0">Первый</option>
+                <option value="1">Второй</option>
+                <option value="2">Третий</option>
+                <option value="3">Четвертый</option>
+                <option value="4">Пятый</option>
+                <option value="5">Шестой</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " onclick="change()">Подтвердить</button>
+        </div>
+    </div>
 
-    <select id="levels">
-        <option value="0">Первый</option>
-        <option value="1">Второй</option>
-        <option value="2">Третий</option>
-        <option value="3">Четвертый</option>
-        <option value="4">Пятый</option>
-        <option value="5">Шестой</option>
-    </select>
+    </div>
 
-    <button onclick="change()">Change level</button>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

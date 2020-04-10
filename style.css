@@ -4,6 +4,12 @@ margin: 0;
 padding: 0;
 }
 
+.levelplan {
+
+text-align: center;
+
+}
+
 .map {
 
 position: relative;
@@ -34,6 +40,26 @@ opacity: .3;
 cursor: pointer;
 
 }
+
+.form-control{
+
+width: 50%;
+margin: 0 auto;
+
+}
+
+.interaction{
+
+text-align: center;
+
+}
+
+.choice{
+
+    margin: 10px 0 ;
+
+}
+
 
 .hidden {
 
