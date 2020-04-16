@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
 
-    <button type="submit" onclick="connect()">Connect</button>
+    <div id="chat" class="hidden">
+        <ul id="messageArea"></ul>
+    </div>
+
+    <button id="connectBtn" type="submit" onclick="connect()">Connect</button>
 
     <button type="submit" onclick="sendMessage()">Send</button>
     
