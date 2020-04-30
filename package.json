@@ -4,9 +4,8 @@
   "description": "Stomp.js and RabbitMQ broker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon project/main.js"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yep606/uniProj.git"
@@ -18,7 +17,8 @@
   },
   "homepage": "https://github.com/yep606/uniProj#readme",
   "dependencies": {
-    "request": "^2.88.2",
-    "restful.js": "^0.9.6"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
   }
 }
+ 
