@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="code.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Document</title>
 </head>
 <body>
-
-    <div id="chat" class="hidden">
-        <ul id="messageArea"></ul>
-    </div>
-
-    <button id="connectBtn" type="submit" onclick="connect()">Connect</button>
-
-    <button type="submit" onclick="sendMessage()">Send</button>
     
+    <div id="app">
+       <todo-items
+       v-for="item in items"
+       v-bind:list="item"
+       v-bind:key="item.id"
+>
+
+       </todo-items>
+      </div>
+
+
+    <script src="code.js"></script>
 </body>
 </html>
 
