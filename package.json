@@ -2,8 +2,9 @@
   "name": "uniproj",
   "version": "1.0.0",
   "description": "Stomp.js and RabbitMQ broker",
-  "main": "index.js",
+  "private": true,
   "scripts": {
+    "build": "webpack",
     "test": ""
   },
   "repository": {
@@ -17,7 +18,10 @@
   },
   "homepage": "https://github.com/yep606/uniProj#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@stomp/stompjs": "^5.4.4",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "sockjs-client": "^1.4.0"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
