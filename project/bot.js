@@ -1,7 +1,5 @@
   
 require('dotenv').config();
-require("babel-core/register");
-require("babel-polyfill");
 const ig = require('./instagram');
 const {Telegraf} = require('telegraf')
 const axios = require('axios');
@@ -36,26 +34,26 @@ const welcomeMessage = "Hey, I'm Telfa! Send me your Instagram login and passwor
 
 bot.start(async (ctx) => {
 
-   let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
-       "username": "",
-       "password": ""})
+//    let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
+//        "username": "",
+//        "password": ""})
 
-    console.log(res.data.jwt)
+//     console.log(res.data.jwt)
 
-    let final = await axios({
-            method: 'get',
-            url: 'https://telfo.herokuapp.com/test',
-            headers: {
-                "Authentication": `Bearer ${res.data.jwt}`
-            }
-        }
-    )
-    console.log(final)
+    // let final = await axios({
+    //         method: 'get',
+    //         url: 'https://telfo.herokuapp.com/test',
+    //         headers: {
+    //             "Authentication": `Bearer ${res.data.jwt}`
+    //         }
+    //     }
+    // )
+    // console.log(final)
     // if(ctx.session.jwt === undefined)
     //     return ctx.reply(welcomeMessage);
     // else
 
-
+    return ctx.reply("Hello VS")
 
 
 });
