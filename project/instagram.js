@@ -10,6 +10,7 @@ const instagram = {
     initialize: async () => {
         // instagram.browser = await puppeteer.launch({headless: false})
         instagram.browser = await puppeteer.launch({
+            headless: true,
             args: ["--no-sandbox"]
         })
         instagram.page = await instagram.browser.newPage();
@@ -76,10 +77,6 @@ const instagram = {
         await instagram.page.waitFor(1000);
         const text = await instagram.page.text();
         console.log(text);
-        await instagram.page.screenshot({
-            path: 'test.png',
-            fullPage: true
-       });
     }
 }
 
