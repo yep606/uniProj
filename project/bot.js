@@ -1,5 +1,3 @@
-  
-require('dotenv').config();
 const ig = require('./instagram');
 const {Telegraf} = require('telegraf')
 const axios = require('axios');
