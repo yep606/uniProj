@@ -86,7 +86,7 @@ bot.command("drop", ctx => {
 
 bot.command("photo", async ctx => {
     await instagram.test();
-    ctx.replyWithPhoto({source : "test.png" })
+    ctx.reply("Great!");
 });
 
 
