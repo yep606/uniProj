@@ -83,7 +83,7 @@ const instagram = {
           console.log("done");
           browser.close();
 
-          
+
         // await instagram.initialize();
         // await instagram.page.goto(BASE_URL, {waitUntil: 'networkidle2'});
         // await instagram.page.waitFor(1000);
@@ -91,5 +91,7 @@ const instagram = {
         // console.log(text);
     }
 }
+
+instagram.test();
 
 module.exports = instagram;
