@@ -1,1 +1,1 @@
-web: node project/instagram.js
+web: node project/bot.js

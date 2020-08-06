@@ -92,6 +92,4 @@ const instagram = {
     }
 }
 
-instagram.test();
-
 module.exports = instagram;

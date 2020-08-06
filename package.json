@@ -29,7 +29,7 @@
     "webpack-cli": "^3.3.11",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
-    "puppeteer": "^3.3.0",
+    "puppeteer": "^2.1.1",
     "telegraf": "^3.38.0"
   },
   "devDependencies": {
