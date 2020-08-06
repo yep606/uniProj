@@ -6,7 +6,8 @@ const axios = require('axios');
 const session = require('telegraf/session');
 const bot = new Telegraf(process.env.TOKEN);
 const Stage = require('telegraf/stage')
-const Scene = require('telegraf/scenes/base')
+const Scene = require('telegraf/scenes/base');
+const instagram = require('./instagram');
 const { leave } = Stage
 var s;
 
@@ -34,6 +35,7 @@ const welcomeMessage = "Hey, I'm Telfa! Send me your Instagram login and passwor
 
 bot.start(async (ctx) => {
 
+
 //    let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
 //        "username": "",
 //        "password": ""})
@@ -53,7 +55,7 @@ bot.start(async (ctx) => {
     //     return ctx.reply(welcomeMessage);
     // else
 
-    return ctx.reply("Hello VS")
+    return ctx.reply("Available commands: /start, /test")
 
 
 });
@@ -81,6 +83,11 @@ bot.command("drop", ctx => {
     // user.password = "";
     //
     // return ctx.reply("Dropped login and password")
+});
+
+bot.command("photo", async ctx => {
+    await instagram.test();
+    ctx.replyWithPhoto("test.png")
 });
 
 

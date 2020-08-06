@@ -8,7 +8,8 @@ const instagram = {
     browser: null,
     page: null,
     initialize: async () => {
-        instagram.browser = await puppeteer.launch({headless: false})
+        // instagram.browser = await puppeteer.launch({headless: false})
+        instagram.browser = await puppeteer.launch()
         instagram.page = await instagram.browser.newPage();
     },
 
@@ -64,6 +65,17 @@ const instagram = {
             await instagram.page.waitFor(15000);
 
         }
+
+    },
+
+    test: async () => {
+        await instagram.initialize();
+        await instagram.page.goto(BASE_URL, {waitUntil: 'networkidle2'});
+        await instagram.page.waitFor(1000);
+        await instagram.page.screenshot({
+            path: 'test.png',
+            fullPage: true
+       });
 
     }
 }
