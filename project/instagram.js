@@ -72,11 +72,22 @@ const instagram = {
     },
 
     test: async () => {
-        await instagram.initialize();
-        await instagram.page.goto(BASE_URL, {waitUntil: 'networkidle2'});
-        await instagram.page.waitFor(1000);
-        const text = await instagram.page.text();
-        console.log(text);
+
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: ["--no-sandbox"]
+          });
+          const tab = await browser.newPage();
+          const text = await (await tab.goto("http://example.com/")).text();
+          console.log(text);
+          console.log("done");
+          browser.close();
+
+        // await instagram.initialize();
+        // await instagram.page.goto(BASE_URL, {waitUntil: 'networkidle2'});
+        // await instagram.page.waitFor(1000);
+        // const text = await instagram.page.text();
+        // console.log(text);
     }
 }
 
