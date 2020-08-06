@@ -9,7 +9,9 @@ const instagram = {
     page: null,
     initialize: async () => {
         // instagram.browser = await puppeteer.launch({headless: false})
-        instagram.browser = await puppeteer.launch()
+        instagram.browser = await puppeteer.launch({
+            args: ["--no-sandbox"]
+        })
         instagram.page = await instagram.browser.newPage();
     },
 
@@ -72,11 +74,12 @@ const instagram = {
         await instagram.initialize();
         await instagram.page.goto(BASE_URL, {waitUntil: 'networkidle2'});
         await instagram.page.waitFor(1000);
+        const text = await instagram.page.text();
+        console.log(text);
         await instagram.page.screenshot({
             path: 'test.png',
             fullPage: true
        });
-
     }
 }
 
