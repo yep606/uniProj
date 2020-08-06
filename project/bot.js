@@ -1,3 +1,4 @@
+require('dotenv').config();
 const ig = require('./instagram');
 const {Telegraf} = require('telegraf')
 const axios = require('axios');
@@ -85,7 +86,7 @@ bot.command("drop", ctx => {
 
 bot.command("photo", async ctx => {
     await instagram.test();
-    ctx.replyWithPhoto("test.png")
+    ctx.replyWithPhoto({source : "test.png" })
 });
 
 
