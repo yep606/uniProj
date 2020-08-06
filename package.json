@@ -1,6 +1,9 @@
 {
   "name": "uniproj",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.0.0"
+  },
   "description": "Stomp.js and RabbitMQ broker",
   "private": true,
   "scripts": {
