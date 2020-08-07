@@ -7,8 +7,17 @@ const bot = new Telegraf(process.env.TOKEN);
 const Stage = require('telegraf/stage')
 const Scene = require('telegraf/scenes/base');
 const instagram = require('./instagram');
+const express = require('express');
+const expressApp = express();
 const { leave } = Stage
 var s;
+
+const URL = process.env.URL || 'https://telfa-front.herokuapp.com'
+const PORT = process.env.PORT || 3000;
+const API_TOKEN = process.env.TOKEN || '';
+
+bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
 // Greeter scene
 const greeter = new Scene('greeter')
@@ -124,4 +133,9 @@ bot.on('text', (ctx) => {
     return ctx.reply('👍')
 });
 
-bot.launch();
+expressApp.get('/', (req, res) => {
+    res.send('Hello World!');
+  });
+  expressApp.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
