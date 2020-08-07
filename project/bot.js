@@ -16,9 +16,6 @@ const URL = process.env.URL || 'https://telfa-front.herokuapp.com'
 const PORT = process.env.PORT || 3000;
 const API_TOKEN = process.env.TOKEN || '';
 
-bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
-expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
-
 // Greeter scene
 const greeter = new Scene('greeter')
 greeter.enter((ctx) => ctx.reply('Hi'))
@@ -139,3 +136,5 @@ expressApp.get('/', (req, res) => {
   expressApp.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+
+  bot.startPolling();
