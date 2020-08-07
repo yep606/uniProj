@@ -12,9 +12,13 @@ const expressApp = express();
 const { leave } = Stage
 var s;
 
-const URL = process.env.URL || 'https://telfa-front.herokuapp.com'
+const URL = 'https://telfa-front.herokuapp.com'
 const PORT = process.env.PORT || 3000;
 const API_TOKEN = process.env.TOKEN || '';
+
+console.log(`${API_TOKEN}-apitoken----------- ${process.env.PORT}-envtoken`);
+bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
 // Greeter scene
 const greeter = new Scene('greeter')
@@ -130,6 +134,8 @@ bot.on('text', (ctx) => {
     return ctx.reply('👍')
 });
 
+console.log(`${PORT}-apitoken----------- ${process.env.PORT}-envtoken`);
+
 expressApp.get('/', (req, res) => {
     res.send('Hello World!');
   });
@@ -137,4 +143,3 @@ expressApp.get('/', (req, res) => {
     console.log(`Server running on port ${PORT}`);
   });
 
-  bot.startPolling();
