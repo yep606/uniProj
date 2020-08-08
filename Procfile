@@ -1,1 +1,1 @@
-worker: node project/bot.js
+web: node webhook/hookbot.js
