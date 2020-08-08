@@ -28,7 +28,7 @@
     "lodash": "^4.17.15",
     "puppeteer": "^2.1.1",
     "sockjs-client": "^1.4.0",
-    "telegraf": "^3.38.0",
+    "telegraf": "^3.38.0"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
