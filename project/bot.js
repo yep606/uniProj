@@ -13,7 +13,7 @@ const URL = 'https://telfa-front.herokuapp.com'
 const PORT = process.env.PORT || 3000;
 const API_TOKEN = process.env.TOKEN || '';
 
-console.log(`${API_TOKEN}-apitoken----------- ${process.env.PORT}-envtoken`);
+console.log(`${API_TOKEN}-apitoken----------- ${process.env.TOKEN}-envtoken`);
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
