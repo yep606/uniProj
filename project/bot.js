@@ -4,12 +4,9 @@ const {Telegraf} = require('telegraf')
 const axios = require('axios');
 const session = require('telegraf/session');
 const bot = new Telegraf(process.env.TOKEN);
-const Stage = require('telegraf/stage')
-const Scene = require('telegraf/scenes/base');
 const instagram = require('./instagram');
 const express = require('express');
 const expressApp = express();
-const { leave } = Stage
 var s;
 
 const URL = 'https://telfa-front.herokuapp.com'
@@ -20,23 +17,7 @@ console.log(`${API_TOKEN}-apitoken----------- ${process.env.PORT}-envtoken`);
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
-// Greeter scene
-const greeter = new Scene('greeter')
-greeter.enter((ctx) => ctx.reply('Hi'))
-greeter.leave((ctx) => ctx.reply('Bye'))
-greeter.hears("leave", leave())
-greeter.on('message', (ctx) => ctx.reply(ctx.session.bla + "and num" + s))
-
-// Create scene manager
-const stage = new Stage()
-stage.command('cancel', leave())
-
-// Scene registration
-stage.register(greeter)
-
 bot.use(session())
-bot.use(stage.middleware())
-
 
 let ready = false;
 const welcomeMessage = "Hey, I'm Telfa! Send me your Instagram login and password, " +
@@ -99,27 +80,6 @@ bot.command("photo", async ctx => {
     ctx.reply("Great!");
 });
 
-
-// bot.command('onetime', ({ reply }) =>
-//     reply('One time keyboard', Markup
-//         .keyboard(['/simple', '/inline', '/pyramid'])
-//         .oneTime()
-//         .resize()
-//         .extra()
-//     )
-// )
-//
-// bot.command('special', (ctx) => {
-//     return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
-//         return markup.resize()
-//             .keyboard([
-//                 markup.contactRequestButton('Send contact'),
-//                 markup.locationRequestButton('Send location')
-//             ])
-//     }))
-// })
-
-
 bot.hears('hi', async (ctx) => {
     await ctx.reply(`Hey, ${ctx.from.first_name}`);
 });
@@ -139,7 +99,7 @@ console.log(`${PORT}-apitoken----------- ${process.env.PORT}-envtoken`);
 expressApp.get('/', (req, res) => {
     res.send('Hello World!');
   });
-  expressApp.listen(PORT, () => {
+  expressApp.listen(process.env.PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 

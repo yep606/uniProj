@@ -80,6 +80,8 @@ const instagram = {
           const tab = await browser.newPage();
           const text = await (await tab.goto("http://example.com/")).text();
           console.log(text);
+          console.log("-----------");
+          console.log(process.env.PORT);
           console.log("done");
           browser.close();
 
