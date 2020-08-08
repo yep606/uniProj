@@ -7,13 +7,13 @@ const bot = new Telegraf(process.env.TOKEN);
 const instagram = require('./instagram');
 const express = require('express');
 const expressApp = express();
-var s;
+
 
 const URL = 'https://telfa-front.herokuapp.com'
 const port = process.env.PORT || 5555;
 const API_TOKEN = process.env.TOKEN || '';
 
-console.log(`${API_TOKEN}-apitoken----------- ${process.env.TOKEN}-envtoken`);
+
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
@@ -67,8 +67,6 @@ bot.command("done", async ctx => {
 
 bot.command("drop", ctx => {
 
-    ctx.session.bla = 1;
-    s = 20;
     // user.username = "";
     // user.password = "";
     //
@@ -94,7 +92,6 @@ bot.on('text', (ctx) => {
     return ctx.reply('👍')
 });
 
-console.log(`${port}-apitoken----------- ${process.env.PORT}-envtoken`);
 
 expressApp.get('/', (req, res) => {
     res.send('Hello World!');
