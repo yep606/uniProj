@@ -1,1 +1,1 @@
-web: webhook/hookbot.js
+web: node project/bot.js

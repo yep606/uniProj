@@ -7,8 +7,8 @@
   "description": "Stomp.js and RabbitMQ broker",
   "private": true,
   "scripts": {
-    "build": "node project/bot.js",
-    "test": "webpack"
+    "start": "node project/bot.js"
+  
   },
   "repository": {
     "type": "git",
