@@ -10,7 +10,7 @@ const expressApp = express();
 var s;
 
 const URL = 'https://telfa-front.herokuapp.com'
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 5555;
 const API_TOKEN = process.env.TOKEN || '';
 
 console.log(`${API_TOKEN}-apitoken----------- ${process.env.TOKEN}-envtoken`);
@@ -94,12 +94,12 @@ bot.on('text', (ctx) => {
     return ctx.reply('👍')
 });
 
-console.log(`${PORT}-apitoken----------- ${process.env.PORT}-envtoken`);
+console.log(`${port}-apitoken----------- ${process.env.PORT}-envtoken`);
 
 expressApp.get('/', (req, res) => {
     res.send('Hello World!');
   });
-  expressApp.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  expressApp.listen(port, () => {
+    console.log(`Server running on port ${port}`);
   });
 
