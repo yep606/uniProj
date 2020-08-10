@@ -3,11 +3,11 @@ const ig = require('./instagram');
 const {Telegraf} = require('telegraf')
 const axios = require('axios');
 const session = require('telegraf/session');
-const bot = new Telegraf(process.env.TOKEN);
 const instagram = require('./instagram');
 const express = require('express');
 const expressApp = express();
 
+const bot = new Telegraf(process.env.TOKEN);
 
 const URL = 'https://telfa-front.herokuapp.com'
 const port = process.env.PORT || 5555;
@@ -15,20 +15,20 @@ const API_TOKEN = process.env.TOKEN || '';
 
 
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+bot.use(session())
 expressApp.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
-bot.use(session())
-
-let ready = false;
 const welcomeMessage = "Hey, I'm Telfa! Send me your Instagram login and password, " +
     "After all write /done";
 
 bot.start(async (ctx) => {
 
+    ctx.reply(`Hey, ${ctx.from.first_name}, I'm Telfa! Send me your Instagram login and password, " +
+    "After all write /done`);
 
-//    let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
-//        "username": "",
-//        "password": ""})
+   let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
+       "username": "",
+       "password": ""})
 
 //     console.log(res.data.jwt)
 
