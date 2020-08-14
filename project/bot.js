@@ -26,9 +26,11 @@ bot.start(async (ctx) => {
     ctx.reply(`Hey, ${ctx.from.first_name}, I'm Telfa! Send me your Instagram login and password, " +
     "After all write /done`);
 
-   let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
-       "username": "",
-       "password": ""})
+//    let res = await axios.post('https://telfo.herokuapp.com/authenticate', {
+//        "username": "",
+//        "password": ""})
+
+    
 
 //     console.log(res.data.jwt)
 
