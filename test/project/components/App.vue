@@ -18,6 +18,7 @@ export default {
   },
   created(){
         axios.get(URL).then(response => {
+            console.log("Created");
              console.log(response.data);
              this.tasks = response.data;
              console.log(this.tasks[0].description);
