@@ -2,6 +2,7 @@ import SockJS from 'sockjs-client'
 import {Stomp} from '@stomp/stompjs'
 
 let stompClient = null;
+const handlers = []
 
 export function connect() {
     const socket = new SockJS('http://localhost:8080/ws');
@@ -9,11 +10,12 @@ export function connect() {
     stompClient.debug = () => {
     };
     stompClient.connect({}, frame => {
-        stompClient.subscribe('/topic/tasks', onMessageReceived)
+        stompClient.subscribe('/topic/tasks', message => {
+            handlers.forEach(handler => handler(JSON.parse(message.body)))
+        })
     })
 }
 
-function onMessageReceived(message) {
-    console.log("Got new message!");
-    console.log(message)
+export function addHandler(handler) {
+    handlers.push(handler)
 }
